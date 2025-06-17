@@ -1,0 +1,169 @@
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| emp                |
+| employee           |
+| information_schema |
+| mysql              |
+| performance_schema |
+| student            |
++--------------------+
+6 rows in set (0.00 sec)
+
+mysql> create database customer;
+Query OK, 1 row affected (0.06 sec)
+
+mysql> use customer;
+Database changed
+
+mysql> create table student(
+    -> sname varchar(50),
+    -> srollno int,
+    -> smark int
+    -> );
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> select * from student;
+Empty set (0.00 sec)
+
+mysql> desc student;
++---------+-------------+------+-----+---------+-------+
+| Field   | Type        | Null | Key | Default | Extra |
++---------+-------------+------+-----+---------+-------+
+| sname   | varchar(50) | YES  |     | NULL    |       |
+| srollno | int         | YES  |     | NULL    |       |
+| smark   | int         | YES  |     | NULL    |       |
++---------+-------------+------+-----+---------+-------+
+3 rows in set (0.00 sec)
+
+
+
+mysql>  insert into student ( sname, srollno,smark)values
+    -> ('krithi' , 01, 86),
+    -> ('keekee' ,02, 81),
+    -> ('kamini',03,65)
+    -> ;
+Query OK, 3 rows affected (0.01 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+mysql> select *
+    -> from student
+    -> ;
++--------+---------+-------+
+| sname  | srollno | smark |
++--------+---------+-------+
+| krithi |       1 |    86 |
+| keekee |       2 |    81 |
+| kamini |       3 |    65 |
++--------+---------+-------+
+3 rows in set (0.00 sec)
+
+mysql> select *
+    -> from student
+    -> where smark > 80;
++--------+---------+-------+
+| sname  | srollno | smark |
++--------+---------+-------+
+| krithi |       1 |    86 |
+| keekee |       2 |    81 |
++--------+---------+-------+
+2 rows in set (0.00 sec)
+
+mysql> create table course(
+    -> coursename varchar(50),
+    -> coursefee int
+    -> );
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> insert into course(coursename , coursefee)values
+    -> ('web', 50000),
+    -> ('fsd',60000),
+    -> ('sd',45000),
+    -> ('data analyst',67000),
+    -> ('devops',55000)
+    -> ;
+Query OK, 5 rows affected (0.04 sec)
+Records: 5  Duplicates: 0  Warnings: 0
+
+mysql> select * from course
+    -> ;
++--------------+-----------+
+| coursename   | coursefee |
++--------------+-----------+
+| web          |     50000 |
+| fsd          |     60000 |
+| sd           |     45000 |
+| data analyst |     67000 |
+| devops       |     55000 |
++--------------+-----------+
+5 rows in set (0.00 sec)
+
+
+mysql> select *
+    -> from course
+    -> order by coursefee asc;
++--------------+-----------+
+| coursename   | coursefee |
++--------------+-----------+
+| sd           |     45000 |
+| web          |     50000 |
+| devops       |     55000 |
+| fsd          |     60000 |
+| data analyst |     67000 |
++--------------+-----------+
+5 rows in set (0.00 sec)
+
+
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 3
+mysql> create table books(
+    -> sno int,
+    -> bookname varchar(50)
+    -> );
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> insert into books(sno, bookname)vales
+    -> ( 1, 'python'),
+    -> ( 2, 'react'),
+    -> ( 3, 'react.js'),
+    -> ( 4, 'java'),
+    -> ( 5, 'javascript');
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'vales
+( 1, 'python'),
+( 2, 'react'),
+( 3, 'react.js'),
+( 4, 'java'),
+( 5, 'javas' at line 1
+mysql> insert into books(sno, bookname)values
+    -> ( 1, 'python'),
+    -> ( 2, 'react'),
+    -> ( 3, 'react.js'),
+    -> ( 4, 'java'),
+    -> ( 5, 'javascript');
+Query OK, 5 rows affected (0.04 sec)
+Records: 5  Duplicates: 0  Warnings: 0
+
+mysql> select * from books
+    -> ;
++------+------------+
+| sno  | bookname   |
++------+------------+
+|    1 | python     |
+|    2 | react      |
+|    3 | react.js   |
+|    4 | java       |
+|    5 | javascript |
++------+------------+
+5 rows in set (0.00 sec)
+
+
+mysql> select *
+    -> from books
+    -> where bookname like 'r%';
++------+----------+
+| sno  | bookname |
++------+----------+
+|    2 | react    |
+|    3 | react.js |
++------+----------+
+2 rows in set (0.00 sec)
