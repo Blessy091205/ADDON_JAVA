@@ -1,0 +1,79 @@
+manager.displayStudents();
+
+                        break;
+
+
+
+                    case 3:
+
+                        System.out.print("Roll No to update: ");
+
+                        int ur = sc.nextInt(); sc.nextLine();
+
+                        System.out.print("New Name: ");
+
+                        String un = sc.nextLine();
+
+                        System.out.print("New Email: ");
+
+                        String ue = sc.nextLine();
+
+                        System.out.print("New Phone: ");
+
+                        String up = sc.nextLine();
+
+                        System.out.print("New Dept: ");
+
+                        String ud = sc.nextLine();
+
+                        System.out.print("New Course: ");
+
+                        String uc = sc.nextLine();
+
+                        Student us = new Student(ur, un, ue, up, ud, uc);
+
+                        manager.updateStudent(us);
+
+                        break;
+
+
+
+                    case 4:
+
+                        System.out.print("Roll No to delete: ");
+
+                        int dr = sc.nextInt();
+
+                        manager.deleteStudent(dr);
+
+                        break;
+
+
+
+                    case 5:
+
+                        System.out.println("Exiting. Goodbye!");
+
+                        return;
+
+
+
+                    default:
+
+                        System.out.println("Invalid choice.");
+
+                }
+
+            } catch (Exception ex) {
+
+                System.out.println("Error: " + ex.getMessage());
+
+                ex.printStackTrace();
+
+            }
+
+        }
+
+    }
+
+}
